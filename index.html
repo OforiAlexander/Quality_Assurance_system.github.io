@@ -1,14 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quality Assurance</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
 </head>
-<body class="bg-red-500">
-    <div class="flex items-center justify-center w-full h-screen py-6 px-6 border-2 border-gray-200">
-        <div id="log_in" class="w-96 border-2"></div>
+<body class="bg-cover bg-center bg-no-repeat" style="background-image: url('./Assets/img/UPSA\ \(1\).jpg')">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+            <div class="text-center">
+                <img src="./Assets/img/upsa.jpg" alt="Gmail Logo" class="mx-auto mb-4 w-30">
+                <h2 class="text-xl font-bold mb-4">Login</h2>
+            </div>
+            <form class="space-y-4" id="loginForm">
+                <input type="email" id="email" name="email" placeholder="Email or phone" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+                <input type="password" id="password" name="password" placeholder="Password" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+                <div class="text-right">
+                    <a href="#" class="text-sm text-blue-500">Forgot password?</a>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-black py-2 rounded-md">Login</button>
+            </form>
+           
+        </div>
     </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the values of email and password
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Check if email and password match the expected values
+            if (email === "123@gmail.com" && password === "123456") {
+                // If they match, navigate to dashboard.html and pass the email as a query parameter
+                window.location.href = "home-form.html?email=" + encodeURIComponent(email);
+            } else {
+                // If they don't match, display an error message or handle it as you like
+                alert("Incorrect email or password. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
