@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            width: 240px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar bg-gray-800 text-white">
+            <div class="p-4 text-center">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+            </div>
+            <nav class="mt-6">
+                <a href="./detial-info.html" class="block p-4 hover:bg-gray-700">Dashboard</a>
+                <a href="./home-form.html" class="block p-4 hover:bg-gray-700">Make Reports</a>
+                <a href="./completed.html" class="block p-4 hover:bg-gray-700">Completed</a>
+                <a href="./inprogress.html" class="block p-4 hover:bg-gray-700">In Progress</a>
+                <a href="./not_initiated.html" class="block p-4 hover:bg-gray-700">Not Initiated</a>
+                <a href="./index.html" class="block p-4 hover:bg-gray-700">logout</a>
+            </nav>
+        </div>
+        
+        <div class="flex-1 p-10" id="dashboardContent">
+            <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+                <a href="./completed.html">
+                <div class="bg-white rounded-lg shadow-md p-6" id="completedCard">
+                    <h3 class="text-lg font-semibold mb-2">Completed</h3>
+                    <p class="text-gray-600" id="completed">Loading...</p>
+                </div>
+                </a>
+                
+                <a href="./inprogress.html">
+                <div class="bg-white rounded-lg shadow-md p-6" id="inprogresscCard">
+                    <h3 class="text-lg font-semibold mb-2">In-progress</h3>
+                    <p class="text-gray-600" id="inprogress">Loading...</p>
+                </div>
+                </a>
+
+                <a href="./not_initiated.html">
+                <div class="bg-white rounded-lg shadow-md p-6" id="visitsCard">
+                    <h3 class="text-lg font-semibold mb-2">Not Initiated</h3>
+                    <p class="text-gray-600" id="notinitiated">Loading...</p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data fetching function
+        function fetchData() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve({
+                        completed_view: 15,
+                        inprogress_view: 12,
+                        notinitiated_view: 2,
+                    });
+                }, 1000); // Simulate delay for fetching data
+            });
+        }
+
+        // Update dashboard cards with fetched data
+        async function updateDashboard() {
+            const data = await fetchData();
+
+            document.getElementById('completed').textContent = `Total completed Report: ${data.completed_view}`;
+            document.getElementById('inprogress').textContent = `Total In-Progress Report: ${data.inprogress_view}`;
+            document.getElementById('notinitiated').textContent = `Total Not Intitiated: ${data.notinitiated_view}`;
+        }
+
+        // Initial data load
+        updateDashboard();
+    </script>
+</body>
+</html>
