@@ -10,7 +10,7 @@
 </head>
 <body class="bg-cover bg-center bg-no-repeat" style="background-image: url('./Assets/img/UPSA\ \(1\).jpg')">
     <div class="flex justify-center items-center h-screen">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full md:max-w-md">
+        <div class="bg-white p-10 rounded-lg shadow-md w-full md:max-w-md">
             <div class="text-center">
                 <img src="./Assets/img/upsa.jpg" alt="Gmail Logo" class="mx-auto mb-4 w-30">
                 <h2 class="text-xl font-bold mb-4">Login</h2>
@@ -40,7 +40,7 @@
             // Check if email and password match the expected values
             if (email === "123@gmail.com" && password === "123456") {
                 // If they match, navigate to dashboard.html and pass the email as a query parameter
-                window.location.href = "home-form.html?email=" + encodeURIComponent(email);
+                window.location.href = "detial-info.html?email=" + encodeURIComponent(email);
             } else {
                 // If they don't match, display an error message or handle it as you like
                 alert("Incorrect email or password. Please try again.");

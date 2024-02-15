@@ -8,6 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+
+<!-- Header -->
+<div class="flex items-center justify-between bg-gray-200 h-20 px-4">
+    <!-- Logo -->
+    <img src="./Assets/img/upsa_logo.png" alt="Logo" class="h-10">
+    <!-- Logout icon -->
+    <div>
+        <a href="./detial-info.html">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+    </div>
+  </div>
+  
     <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md relative">
         <button class="absolute top-0 right-0 mt-4 mr-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" id="logoutBtn">Logout</button>
         <h2 class="text-2xl font-bold mb-6 text-center">Strategic Initiative Form</h2>
@@ -42,10 +58,10 @@
                     <option value="people">1. PEOPLE</option>
                     <option value="processes">2.PROCESSES</option>
                     <option value="planet">3.PLANET</option>
-                    <option value="q4">4.RELEVANCE</option>
-                    <option value="q4">5.IMPACT</option>
-                    <option value="q4">6.SUSTAINABILITY</option>
-                    <option value="q4">7.CONTINUOUS IMPROVEMENT</option>
+                    <option value="relevance">4.RELEVANCE</option>
+                    <option value="impact">5.IMPACT</option>
+                    <option value="SUSTAINABILITY">6.SUSTAINABILITY</option>
+                    <option value="continuous_improvement">7.CONTINUOUS IMPROVEMENT</option>
                 </select>
             </div>
             <div class="mb-4">
@@ -112,18 +128,65 @@
             "7. Promote the health and wellness of our students and staff through sports, recreation, health screening and psycho-social support systems",
             "8.Nurture good and close relationships with our external stakeholders, community, industry, government and partners"],
             processes: [
-            "1", 
-            "2",
-            "3", 
-            "4",
-            "5", 
-            "6",
-            "7",
-            "8"],
-            planet: [
-                "",
+            "1.Implement a strengthened corporate governance mechanism to achieve organisational goals", 
+            "2.Enhance the capacity of Management and leadership",
+            "3.Improve the performance of all leaders", 
+            "4.Streamline administrative functions, responsibilities and processes for efficiency and productivity",
+            "5.Build an organizational climate that is based on shared values and teamwork", 
+            "6.Automate major processes and deploy IT to go paperless as much as possible",
+            "7.Leverage ICT resources, and the University’s Learning Management System (LMS) to enhance the effectiveness of teaching and learning",
             ],
-            
+            planet: [
+                "1.Continue to build the physical and virtual infrastructure that  iscongenial for world-class education and research",
+                "2.Improve access to office space, Internet connectivity and continuous supply of electricity and water",
+                "3.Improve space utilization and maintenance of assets",
+                "4.Improve the safety and security of our physical and virtual environment",
+                "5.Continue to invest in information communication technologies that will enhance the quality of teaching,research and service",
+                "6.Create an equal opportunity environment for inclusiveness",
+                "7.Increase the installation of a solar lighting system and use of other renewable energy systems on campus",
+                "8.Minimize our environmental impact",
+            ],
+            relevance:[
+                "1. Develop a framework to ensure local, national, regional and global relevance",
+                "2. Promote industry relations and interaction with the business community to advance the institutional goal of relevance",
+                "3. Establish and expand appropriate and purposeful partnerships and collaborations with institutions and networks across the sectors of society that contribute to excellence in teaching, research, consulting, and services.",
+                "4. Influence policy and action to change through research.",
+                "5. Engage with the public and policy makers to shape our teaching and research.",
+                "6. Attract students from all over the country and the sub region to pursue the distance learning programmes at UPSA",
+                "7. Establish satellite campuses in other regions",
+                "8. Position UPSA as an entrepreneurial university with the expertise to offer research and consultancy services",
+                "9. Encourage staff industry attachments to gain industry experience.",
+                "10. Embark on community action initiatives",
+               
+            ],
+            impact:[
+                "1.Promote academic excellence in teaching using the highest standards and best practices",
+                "2.Create an institution of active and reflective teaching and continuous learning",
+                "3.Produce quality graduates that contribute to changing the world for the better",
+                "4.Strengthen the research capacity and research professionalism of faculty including grantsmanship",
+                "5.Increase publications in high-impact ranking outlets or journals",
+                "6.Establish Research Chairs in all faculties, particularly in high impact areas.",
+                "7.To be regionally and globally recognised for research excellence",
+                "8.Promote quality and innovative research that addresses emerging issues in UPSA’s research niches",
+                "9.Disseminate research findings effectively",
+                
+              
+            ],
+            SUSTAINABILITY:[
+                "1.Diversify the University’s sources of income.",
+                "2.Ensure fiscal discipline in expenditures to effectively manage funds.",
+                "3.Raise funds to support brilliant but needy students through the Vice-Chancellor’s Endowment Fund (VCEF).",
+                "4.Improve adherence to procurement regulations, public financial management Act, as well as budgeting and budgetary controls.",
+                "5.Ensure effective risk management.",
+            ],
+            continuous_improvement:[
+                "1.Build a robust quality assurance system",
+                "2.Develop new, innovative and transformative academic programmes at the diploma, undergraduate and postgraduate levels and review old ones to ensure that our portfolio offerings reflect industry needs.",
+                "3.Continue to promote scholarship with professionalism as the hallmark of the University.",
+                "4.Stock the library with up-to-date teaching and learning materials and emphasize the importance of its utilization.",
+                "5.Increase the visibility of the University.",
+                "6.Develop and implement a monitoring and evaluation plan for the University’s strategic plan.",
+              ]
         };
 
         const unitDropdown = document.getElementById("s-focus");
@@ -134,7 +197,7 @@
             const options = optionsByUnit[selectedUnit] || [];
 
             // Clear existing options
-            quarterDropdown.innerHTML = "<option value=''>SELECT OBJECTIVES</option>";
+            quarterDropdown.innerHTML = "<option value=''>SELECT </option>";
 
             // Add new options
             options.forEach(option => {
