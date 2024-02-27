@@ -50,7 +50,29 @@
                     <option value="q3">Q3</option>
                     <option value="q4">Q4</option>
                 </select>
-            </div><br>
+            
+            </div>
+            <div class="mb-4">
+                <label for="yearSelec" class="block text-gray-700 font-bold mb-2">Reporting Quarter Year</label>
+                <select id="yearSelect" name="yearSelect" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select a year</option>
+                    
+                    <script>
+                        var select = document.getElementById("yearSelect");
+                        var currentYear = new Date().getFullYear();
+                        for (var i = currentYear; i >= currentYear - 3; i--) {
+                            var option = document.createElement("option");
+                            option.text = i;
+                            option.value = i;
+                            select.appendChild(option);
+                        }
+                    </script>
+                    
+                </select>
+                
+            
+            </div>
+            
             <div class="mb-4">
                 <label for="s-focus" class="block text-gray-700 font-bold mb-2">Strategic Focus</label>
                 <select id="s-focus" name="s-focus" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
@@ -65,7 +87,7 @@
                 </select>
             </div>
             <div class="mb-4">
-                <label for="s-obj" class="block text-gray-700 font-bold mb-2">Strategic Focus</label>
+                <label for="s-obj" class="block text-gray-700 font-bold mb-2">Strategic objectives</label>
                 <select id="s-obj" name="s-obj" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
                     <option value="">Strategic objectives</option>
                     <option value="p1"></option>
@@ -90,11 +112,12 @@
             <div class="mb-4">
                 <label for="completion_date" class="block text-gray-700 font-bold mb-2">Completion Date</label>
                 <input type="date" id="completion_date" name="completion_date" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
-            </div>
+            </div><br>
             <div class="mb-4">
-                <label for="progress" class="block text-gray-700 font-bold mb-2">Undaye/Progress Made in the Quarter</label>
-                <textarea id="progress" name="progress" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"></textarea>
+                <label for="progress" class="block text-gray-700 font-bold mb-2">Update/Progress Made in the Quarter</label>
+                <textarea id="progress" name="progress" rows="4" class="w-full md:w-100 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"></textarea>
             </div>
+            <br>
             <div class="mb-4">
                 <label for="status" class="block text-gray-700 font-bold mb-2">Status</label>
                 <select id="status" name="status" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
@@ -109,14 +132,21 @@
             </div>
         </form>
     </div>
+     <!--<option value="option0">Option </option>
+                <option value="option1">PEOPLE</option>
+                <option value="option2">PROCESSES</option>
+                <option value="option3">PLANET</option>
+                <option value="option4">RELEVANCE</option>
+                <option value="option5">IMPACT</option>
+                <option value="option6">SUSTAINABILITY</option>
+                <option value="option7">CONTINUOUS IMPROVEMENT</option>
+               
+                -->
     <script>
         document.getElementById('logoutBtn').addEventListener('click', function() {
             window.location.href = 'index.html';
         });
-  
-     
-      
-        // Define the options for the second dropdown based on the selection of the first dropdown
+          // Define the options for the second dropdown based on the selection of the first dropdown
         const optionsByUnit = {
             people: [
             "1.Attract and admit eligible students from all backgrounds", 
