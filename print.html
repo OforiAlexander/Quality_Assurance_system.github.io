@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Table</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="container mx-auto">
+        <div class="flex justify-between mb-4">
+            <button onclick="printTable()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Print</button>
+            <button onclick="downloadPDF()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Download PDF</button>
+        </div>
+        <input type="text" id="filterInput" onkeyup="filterTable()" class="mb-4 px-4 py-2 w-full border rounded" placeholder="Filter by name...">
+        <div class="flex items-center mb-4 space-x-4">
+            <div>
+                <label class="block text-gray-700">Select Year:</label>
+                <select id="periodSelect" onchange="filterTable()" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">All</option>
+                </select>
+            </div>
+            
+            <div>
+                <label class="block text-gray-700">Select Strategic Focus:</label>
+                <select id="unitSelect" onchange="filterTable()" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="">All</option>
+                    <option value="PEOPLE">PEOPLE </option>
+                    <option value="PROCESSES">PROCESSES</option>
+                    <option value="PLANET">PLANET</option>
+                    <option value="RELEVANCE">RELEVANCE</option>
+                    <option value="IMPACT">IMPACT</option>
+                    <option value="SUSTAINABILITY">SUSTAINABILITY</option>
+                    <option value="CONTINUOUS IMPROVEMENT">CONTINUOUS IMPROVEMENT</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+        <table id="dataTable" class="min-w-full bg-white border rounded-lg overflow-hidden">
+            <thead class="bg-gray-100 uppercase text-gray-600 text-sm leading-normal">
+                <tr>
+                    <th class="py-3 px-6 text-left">Strategic Focus</th>
+                    <th class="py-3 px-6 text-left">Age</th>
+                    <th class="py-3 px-6 text-left">Email</th>
+                </tr>
+            </thead>
+            <tbody id="dataBody" class="text-gray-600 text-sm font-light">
+                <tr>
+                    <td class="py-3 px-6 border-b border-gray-200">PEOPLE</td>
+                    <td class="py-3 px-6 border-b border-gray-200">30</td>
+                    <td class="py-3 px-6 border-b border-gray-200">john@example.com</td>
+                </tr>
+                <tr>
+                    <td class="py-3 px-6 border-b border-gray-200">Jane Smith</td>
+                    <td class="py-3 px-6 border-b border-gray-200">25</td>
+                    <td class="py-3 px-6 border-b border-gray-200">jane@example.com</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script>
+        function printTable() {
+            window.print();
+        }
+
+        function downloadPDF() {
+            const doc = new jsPDF();
+            doc.autoTable({ html: '#dataTable' });
+            doc.save('table.pdf');
+        }
+
+        function filterTable() {
+            const period = document.getElementById('periodSelect').value;
+            const unit = document.getElementById('unitSelect').value.toLowerCase();
+            const input = document.getElementById('filterInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#dataBody tr');
+            rows.forEach(row => {
+                const name = row.getElementsByTagName('td')[0].innerText.toLowerCase();
+                const age = parseInt(row.getElementsByTagName('td')[1].innerText);
+                if ((unit === '' || name.includes(unit)) && (period === '' || (age >= parseInt(period) && age < parseInt(period) + 10)) && (input === '' || name.includes(input))) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        const yearSelect = document.getElementById('periodSelect');
+    const currentYear = new Date().getFullYear();
+
+    for (let year = currentYear; year >= currentYear - 10; year--) {
+        const option = document.createElement('option');
+        option.value = year;
+        option.textContent = year;
+        yearSelect.appendChild(option);
+    } 
+    </script>
+</body>
+</html>
